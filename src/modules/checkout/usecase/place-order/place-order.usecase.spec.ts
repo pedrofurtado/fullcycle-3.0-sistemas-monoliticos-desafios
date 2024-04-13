@@ -5,10 +5,10 @@ import PlaceOrderUseCase from "./place-order.usecase";
 
 const mockDate = new Date(2000, 1, 1);
 describe("PlaceOrderUseCase unit test", () => {
-    beforeAll(() => {
-      //jest.useFakeTimers("modern");
-        jest.useFakeTimers();
-    });
+    // beforeAll(() => {
+    //   //jest.useFakeTimers("modern");
+    //     jest.useFakeTimers();
+    // });
 
     describe("validateProducts method", () => {
         //@ts-expect-error - no params in constructor
