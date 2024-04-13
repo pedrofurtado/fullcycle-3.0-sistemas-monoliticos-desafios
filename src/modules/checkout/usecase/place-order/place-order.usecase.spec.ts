@@ -5,6 +5,11 @@ import PlaceOrderUseCase from "./place-order.usecase";
 
 const mockDate = new Date(2000, 1, 1);
 describe("PlaceOrderUseCase unit test", () => {
+    beforeAll(() => {
+      //jest.useFakeTimers("modern");
+        jest.useFakeTimers();
+    });
+
     describe("validateProducts method", () => {
         //@ts-expect-error - no params in constructor
         const placeOrderUseCase = new PlaceOrderUseCase();
@@ -62,10 +67,9 @@ describe("PlaceOrderUseCase unit test", () => {
     describe("getProducts method", () => {
         beforeAll(() => {
             //jest.useFakeTimers("modern");
-            jest.useFakeTimers();
             jest.setSystemTime(mockDate);
         });
-        
+
         afterAll(() => {
             jest.useRealTimers();
         });
@@ -119,10 +123,9 @@ describe("PlaceOrderUseCase unit test", () => {
 
         beforeAll(() => {
             //jest.useFakeTimers("modern");
-            jest.useFakeTimers();
             jest.setSystemTime(mockDate);
         });
-        
+
         afterAll(() => {
             jest.useRealTimers();
         });
@@ -226,7 +229,7 @@ describe("PlaceOrderUseCase unit test", () => {
                 .spyOn(placeOrderUseCase, "validateProducts")
                 //@ts-expect-error - spy on private method
                 .mockResolvedValue(null);
-            
+
             const mockGetProduct = jest
                 //@ts-expect-error - spy on private method
                 .spyOn(placeOrderUseCase, "getProduct")
